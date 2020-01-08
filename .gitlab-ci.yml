@@ -5,7 +5,12 @@ stages:
   
   unit-test:
   stage: test
-  script: echo 'Testing...'
+  script: "C:\Program Files\Unity\Hub\Editor\2019.2.17f1\Editor\
+    -batchmode \
+    -projectPath . \
+    -runTests -testPlatform editmode \
+    -logFile \
+    -testResults ./unit-tests.xml"
   tags:
     - unity
   
