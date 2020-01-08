@@ -4,13 +4,13 @@ stages:
   - deploy
 
 unit-test:
-  script: C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath . -runTests -testPlatform editmode -logFile -testResults .\unit-tests.xml
+  script: C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath . -runTests -testPlatform editmode -logFile -testResults .\unit-tests.xml -quit
   stage: test
   tags:
     - unity
 
 unity-build:
-  script: C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -buildWindowsPlayer .
+  script: C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -buildWindowsPlayer .\Build\ -logFile .\logfile.xml -quit
   stage: build
   tags:
     - unity
