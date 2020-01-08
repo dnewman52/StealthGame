@@ -4,11 +4,11 @@ stages:
   - deploy
 
 unit-test:
-  script: start C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe \
-    -batchmode \
-    -projectPath . \
-    -runTests -testPlatform editmode \
-    -logFile \
+  script: start C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe ^
+    -batchmode ^
+    -projectPath . ^
+    -runTests -testPlatform editmode ^
+    -logFile ^
     -testResults .\unit-tests.xml
   stage: test
   tags:
