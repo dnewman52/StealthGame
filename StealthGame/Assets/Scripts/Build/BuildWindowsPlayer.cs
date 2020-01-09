@@ -10,7 +10,7 @@ class BuildWindowsPlayer
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions
         {
             scenes = new[] { "Assets/Scenes/SampleScene.unity" },
-            locationPathName = "./WindowsBuild/Build.exe",
+            locationPathName = "WindowsBuild",
             target = BuildTarget.StandaloneWindows,
             options = BuildOptions.Development
         };
