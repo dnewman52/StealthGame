@@ -22,16 +22,8 @@ mac-deploy:
   script:   
    - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildOSXPlayer  ToDeploy\build.app -logFile logfile.xml -quit
   after_script: 
-   - C:\Butler\butler.exe push ./StealthGame/ToDeploy eaglebyte/stealthgame:mac-32-beta 
+   - C:\Butler\butler.exe push ./ToDeploy eaglebyte/stealthgame:mac-32-beta 
   stage: build&deploy
   tags:
     - unity
     
-linux-deploy:
-  script:
-   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildLinux32Player  ToDeploy\build -logFile logfile.xml -quit
-  after_script: 
-   - C:\Butler\butler.exe push ./StealthGame/ToDeploy eaglebyte/stealthgame:linux-32-beta
-  stage: build&deploy
-  tags:
-    - unity
