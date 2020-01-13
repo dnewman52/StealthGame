@@ -9,18 +9,52 @@ unit-test:
   tags:
     - unity
 
-unity-build:
+win-build:
   script:
-   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildWindowsPlayer ToDeploy\build.exe -logFile logfile.xml -quit
+   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildWindowsPlayer ToDeploy\Windows\build.exe -logFile logfile.xml -quit
+  stage: build
+  tags:
+    - unity
+    
+mac-build:
+  script:   
+   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildOSXPlayer  ToDeploy\Mac\build.app -logFile logfile.xml -quit
+   
+  stage: build
+  tags:
+    - unity
+    
+linux-build:
+  script:
+   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildLinux32Player  ToDeploy\Linux\build -logFile logfile.xml -quit
   stage: build
   tags:
     - unity
 
-itchio:
+itchio-win:
   script:
    - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildWindowsPlayer ToDeploy\build.exe -logFile logfile.xml -quit  
   after_script: 
    - C:\Butler\butler.exe push ./StealthGame/ToDeploy eaglebyte/stealthgame:windows-32-beta
+  stage: deploy
+  tags:
+    - unity
+    
+itchio-mac:
+  script:
+   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildOSXPlayer  ToDeploy\Mac\build.app -logFile logfile.xml -quit  
+  after_script: 
+   - C:\Butler\butler.exe push ./StealthGame/ToDeploy eaglebyte/stealthgame:mac-32-beta
+  stage: deploy
+  tags:
+    - unity
+    
+    
+itchio-linux:
+  script:
+   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildLinux32Player  ToDeploy\Linux\build -logFile logfile.xml -quit  
+  after_script: 
+   - C:\Butler\butler.exe push ./StealthGame/ToDeploy eaglebyte/stealthgame:linux-32-beta
   stage: deploy
   tags:
     - unity
