@@ -12,13 +12,13 @@ unit-test:
 unity-build:
   script:
    - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -buildWindowsPlayer ToDeploy\build.exe -logFile logfile.xml -quit
-   - type logfile.xml
   stage: build
   tags:
     - unity
 
 itchio:
-  script: "echo 'Deploying...'"
+  script: 
+   - butler push C:\Users\Dan\Documents\!Repos\StealthGame\StealthGame\ToDeploy eaglebyte/stealthgame:windows-32-beta
   stage: deploy
   tags:
     - unity
