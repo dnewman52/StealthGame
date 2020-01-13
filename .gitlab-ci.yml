@@ -10,8 +10,9 @@ unit-test:
     - unity
 
 unity-build:
-  script: C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -buildWindowsPlayer ToDeploy\build.exe -logFile logfile.xml -quit
-  script: type logfile.xml
+  script:
+   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -buildWindowsPlayer ToDeploy\build.exe -logFile logfile.xml -quit
+   - type logfile.xml
   stage: build
   tags:
     - unity
