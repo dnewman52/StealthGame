@@ -33,7 +33,7 @@ linux-build:
 
 itchio-win:
   script:
-   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildWindowsPlayer ToDeploy\build.exe -logFile logfile.xml -quit  
+   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildWindowsPlayer ToDeploy\Windows\build.exe -logFile logfile.xml -quit
   after_script: 
    - C:\Butler\butler.exe push ./StealthGame/ToDeploy eaglebyte/stealthgame:windows-32-beta
   stage: deploy
