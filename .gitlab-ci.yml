@@ -17,8 +17,10 @@ unity-build:
     - unity
 
 itchio:
-  script: 
-   - butler push C:\Users\Dan\Documents\!Repos\StealthGame\StealthGame\ToDeploy eaglebyte/stealthgame:windows-32-beta
+  script:
+   - butler -V
+   - C:\"Program Files"\Unity\Hub\Editor\2019.2.17f1\Editor\Unity.exe -batchmode -projectPath ./StealthGame -buildWindowsPlayer ToDeploy\build.exe -logFile logfile.xml -quit  
+   - butler push ./StealthGame/ToDeploy eaglebyte/stealthgame:windows-32-beta
   stage: deploy
   tags:
     - unity
